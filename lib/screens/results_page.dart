@@ -5,6 +5,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ResultsPage extends StatelessWidget {
+  final String bmiResults;
+  final String resultText;
+  final String interpretationText;
+
+  ResultsPage(
+      {@required this.bmiResults,
+      @required this.resultText,
+      @required this.interpretationText});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,15 +44,15 @@ class ResultsPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'RELAXA',
+                      this.resultText.toUpperCase(),
                       style: kResultTextStyle,
                     ),
                     Text(
-                      '18.3',
+                      this.bmiResults,
                       style: kBMITextStyle,
                     ),
                     Text(
-                      'Your BMI result is quite low, you should eat more!',
+                      this.interpretationText,
                       style: kBodyTextStyle,
                       textAlign: TextAlign.center,
                     ),
